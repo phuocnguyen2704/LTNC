@@ -80,7 +80,7 @@
 
    <form action="" method="post" class="search-tutor">
       <input type="number" id="search_Inp" name="search_box"  placeholder="Tìm ID khóa học" required maxlength="100">
-      <button type="button" id="search_BTn_Inp" class="fas fa-search" name="search_tutor"></button>
+      <input type="button"  id="search_BTn_Inp" class="fas fa-search" name="search_tutor">
    </form>
 
    <div class="box-container">
@@ -115,7 +115,7 @@
 
 
 <!-- custom js file link   -->
-<script>
+<script type="module">
    // Retrieve username from session storage
 
    const username = sessionStorage.getItem("username");
@@ -155,12 +155,16 @@
 
 
             const Search=() => {
-               let size_temp;
+               alert("chay")
+
                const dbRef = ref(getDatabase());
                get(child(dbRef,'Course/' + search_Inp_db.value ))
                .then((snapshot) => {
                if (snapshot.exists()) {
-                  size_temp=snapshot.Size+1
+                  alert("chay")
+                  let __course=new course (snapshot.Course_name,search_Inp_db.value,snapshot.Email_Giang_vien,snapshot.danhsach,snapshot.size )
+                  document.getElementById("teacher_course").innerHTML = `<p>${__course.Email_Giang_vien}!</p>`;
+
                } else {
                   console.log("No data available");
                }
@@ -168,7 +172,8 @@
                console.error(error);
                });
 
-               document.getElementById("")
+               search_BTn_Inp_db.addEventListener('click',Search);
+
             }
 
 </script>

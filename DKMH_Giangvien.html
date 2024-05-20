@@ -39,7 +39,7 @@
          <p class="role" id="profile_department">Giảng viên</p>
           <a href="profile.html" class="btn">view profile</a>
           <div class="flex-btn">
-             <a href="login.html" class="option-btn">Log out</a>
+             <a href="home.html" class="option-btn">Log out</a>
  
           </div>
 
@@ -126,7 +126,6 @@
             .then((creds) => {
                
                const course_db= new course(name_course,ID_inp,username )
-               alert("chay duoc")
                Add_Course(course_db.course_name, course_db.course_id)
             })
             .catch((error) => {
@@ -138,10 +137,8 @@
             set(ref(db,'Course/' + ID.value),{
                Course_name:name,
                Email_Giang_vien:Email_input_db.value,
-               info:{
-                  size: 0,
-                  danhsach
-               }
+               size: 0,
+               danhsach:null
             })
             .then(()=>{
                alert("Thêm môn họcthành công");

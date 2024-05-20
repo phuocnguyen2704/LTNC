@@ -10,7 +10,42 @@
    --white:#fff;
    --border:.1rem solid rgba(0,0,0,.2);
 }
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Arial, sans-serif;
+}
 
+.box-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center; 
+   align-items: center; 
+   min-height: 100vh; 
+   gap: 20px;
+   padding: 20px;
+}
+
+.box {
+   background-color: #f0f0f0;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   padding: 25px;
+   text-align: center; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box .title {
+   font-size: 1.5em;
+   margin-bottom: 15px;
+}
+
+.box img {
+   max-width: 100%;
+   height: auto;
+   border-radius: 4px;
+}
 *{
    font-family: 'Nunito', sans-serif;
    margin:0; padding:0;

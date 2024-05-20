@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>Đăng ký</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -35,8 +35,6 @@
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">shaikh anas</h3>
-         <p class="role">studen</p>
          <a href="profile.html" class="btn">view profile</a>
          <div class="flex-btn">
             <a href="login.html" class="option-btn">login</a>
@@ -62,7 +60,7 @@
    </div>
 
    <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>TRang chủ</span></a>
+      <a href="home.html"><i class="fas fa-home"></i><span>Trang chủ</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Khóa học</span></a>
       <a href="contact.html"><i class="fas fa-headset"></i><span>Liên hệ</span></a>
    </nav>
@@ -72,21 +70,21 @@
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data">
-      <h3>register now</h3>
-      <p>your name <span>*</span></p><input type="text" id="nameInp" name="name" placeholder="enter your name" required maxlength="50" class="box">
-      <p>your email <span>*</span></p>
-      <input type="email" id="Email_input" name="email" placeholder="enter your email" required maxlength="50" class="box">
-      <p>your password <span>*</span></p>
-      <input type="password" id="Password_input" name="pass" placeholder="enter your password" required maxlength="20" class="box">
-      <p>confirm password <span>*</span></p>
-      <input type="password" id="confirm_floatingPasswordInp" name="c_pass" placeholder="confirm your password" required maxlength="20" class="box">
+      <h3>Đăng ký</h3>
+      <p>Tên đầy đủ của bạn <span>*</span></p><input type="text" id="nameInp" name="name" placeholder="Nhập họ và tên" required maxlength="50" class="box">
+      <p>Email của bạn<span>*</span></p>
+      <input type="email" id="Email_input" name="email" placeholder="Nhập email" required maxlength="50" class="box">
+      <p>Mật khẩu <span>*</span></p>
+      <input type="password" id="Password_input" name="pass" placeholder="Nhập mật khẩu" required maxlength="20" class="box">
+      <p>Xác nhận mật khẩu <span>*</span></p>
+      <input type="password" id="confirm_floatingPasswordInp" name="c_pass" placeholder="Nhập lại mật khẩu" required maxlength="20" class="box">
       <p>Bạn là <span>*</span></p>
       <select  id="Department_input" class="box" >
          <option value="dep_choices">Lựa chọn</option>
          <option value="Student">Student</option>
          <option value="Teacher">Teacher</option>
      </select><br><br>
-      <input type="button" id="RegisterBtn" value="register new" name="submit" class="btn">
+      <input type="button" id="RegisterBtn" value="Đăng ký ngay" name="submit" class="btn">
    </form>
 
 </section>
@@ -135,6 +133,11 @@
 
    
    function Addaccount_db(name,email,department){
+
+               if (Password_db.value!= Comfirm_pass.value){
+                  alert("Sai mật khẩu, vui lòng nhập lại ")
+                  return
+               }
                 if(department==="Teacher"){
                     set(ref(db,'Teacher/' + name),{
                         name:name,
@@ -179,7 +182,7 @@
 
 <footer class="footer">
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+   &copy; Trang web học tập E-learning trực tuyến trường Đại học DEF
 
 </footer>
 <!-- custom js file link  -->
