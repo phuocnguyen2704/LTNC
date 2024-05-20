@@ -62,16 +62,3 @@ window.onscroll = () =>{
       body.classList.remove('active');
    }
 }
-
-
-// -------------------------------------- OOP -------------------------------
-class Course {
-   constructor(course_name, course_id,teach_name ){
-      this.course_name=course_name;
-      this.course_id=course_id;
-      this.teach_name=teach_name;
-
-   }
-
-
-}

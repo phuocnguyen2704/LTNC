@@ -58,7 +58,7 @@
       <img src="images/pic-1.jpg" class="image" alt="">
       <h3 class="name">shaikh anas</h3>
       <p class="role">studen</p>
-      <a href="profile.html" class="btn">view profile</a>
+      <a href="Trang_Sinhvien.html" class="btn">view profile</a>
    </div>
 
    <nav class="navbar">
@@ -121,7 +121,7 @@
 
 
 // Function to handle login
-   const loginEmployee = () => {
+   const login = () => {
       
          signInWithEmailAndPassword(auth, email.value, pass.value)
             .then((creds) => {
@@ -138,13 +138,17 @@
    const redirectToNewAccountPage = () => {
       const username =email.value;
             const password = pass.value;
-            sessionStorage.setItem("department", Department_db.value)
             sessionStorage.setItem("username", username);  
-            window.location.href = "profile.html";
-   };
+            if(Department_db.value==="Student"){
+               window.location.href = "Trang_Sinhvien.html";
+            }
+            else{
+               window.location.href = "Trang_Giangvien.html";
+            }
+         };
 
 
-   logBtn.addEventListener('click', loginEmployee);
+   logBtn.addEventListener('click', login);
    
  
  

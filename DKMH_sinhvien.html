@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>teachers</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+
+      <a href="home.html" class="logo">DEF Education.</a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+     
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3  id="profileInfo"  class="name"></h3>
+         <p class="role" id="profile_department"></p>
+          <a href="profile.html" class="btn">view profile</a>
+          <div class="flex-btn">
+             <a href="login.html" class="option-btn">Log out</a>
+ 
+          </div>
+       </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="images/picture-2.jpg" class="image" alt="">
+      <h3 class="name">DEF</h3>
+      <p class="role">Education</p>
+      <a href="profile.html" class="btn">view profile</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>TRang chủ</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Khóa học</span></a>
+      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Đăng kí môn học</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>Liên hệ</span></a>
+   </nav>
+
+
+</div>
+
+<section class="teachers">
+
+   <h1 class="heading">Đăng kí môn học</h1>
+
+   <form action="" method="post" class="search-tutor">
+      <input type="number" id="search_Inp" name="search_box"  placeholder="Tìm ID khóa học" required maxlength="100">
+      <button type="button" id="search_BTn_Inp" class="fas fa-search" name="search_tutor"></button>
+   </form>
+
+   <div class="box-container">
+
+      <div class="box offer">
+         
+
+      <div class="box">
+         <div class="tutor">
+            <div>
+               <h3 id="name_course"></h3>
+
+            </div>
+         </div>
+         <p id="teacher_course"></p>
+         <p id="course_id"> </p>
+         <a type="button" id="Reg_Inp" class="inline-btn">Đăng kí</a>
+      </div>
+
+   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link   -->
+<script>
+   // Retrieve username from session storage
+
+   const username = sessionStorage.getItem("username");
+   const department = sessionStorage.getItem("department");
+   if (username) {
+       // Display username
+       document.getElementById("profileInfo").innerHTML = `<p>${username}!</p>`;
+       document.getElementById("profile_department").innerHTML = `<p>${department}!</p>`;
+     } else {
+       // Redirect to login page if username not found
+       window.location.href = "login.html";
+   }
+
+
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+   import { getDatabase,set, ref, child, get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+   import { getAuth,  createUserWithEmailAndPassword , signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+   const firebaseConfig = {
+    apiKey: "AIzaSyBpyo3ozeThQe-PlxxVqfXrtYybNQXNgDs",
+    authDomain: "def-education-324b0.firebaseapp.com",
+    databaseURL: "https://def-education-324b0-default-rtdb.firebaseio.com",
+    projectId: "def-education-324b0",
+    storageBucket: "def-education-324b0.appspot.com",
+    messagingSenderId: "526891981957",
+    appId: "1:526891981957:web:23565fb581f32beb319dec"
+  };
+   // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const db=getDatabase();
+   const auth = getAuth(); 
+
+
+            let search_Inp_db=document.getElementById("search_Inp");
+            let search_BTn_Inp_db=document.getElementById("search_BTn_Inp");
+            let Reg_db = document.getElementById("Reg_Inp");
+
+
+            const Search=() => {
+               let size_temp;
+               const dbRef = ref(getDatabase());
+               get(child(dbRef,'Course/' + search_Inp_db.value ))
+               .then((snapshot) => {
+               if (snapshot.exists()) {
+                  size_temp=snapshot.Size+1
+               } else {
+                  console.log("No data available");
+               }
+               }).catch((error) => {
+               console.error(error);
+               });
+
+               document.getElementById("")
+            }
+
+</script>
+
+
+<footer class="footer">
+
+   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+
+</footer>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+   
+</body>
+</html>

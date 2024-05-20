@@ -37,7 +37,7 @@
       <div class="profile">
         <img src="images/pic-1.jpg" class="image" alt="">
         <h3  id="profileInfo"  class="name"></h3>
-        <p class="role" id="profile_department"></p>
+        <p class="role" id="profile_department">Sinh viên</p>
          <a href="profile.html" class="btn">view profile</a>
          <div class="flex-btn">
             <a href="login.html" class="option-btn">Log out</a>
@@ -65,7 +65,7 @@
    <nav class="navbar">
       <a href="home.html"><i class="fas fa-home"></i><span>TRang chủ</span></a>
       <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Khóa học</span></a>
-      <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>Đăng kí môn học</span></a>
+      <a href="DKMH_Sinhvien.html"><i class="fas fa-chalkboard-user"></i><span>Đăng kí môn học</span></a>
       <a href="contact.html"><i class="fas fa-headset"></i><span>Liên hệ</span></a>
    </nav>
 
@@ -120,11 +120,10 @@
 
 
 
-<footer class="footer">
+   <footer class="footer">
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
-
-</footer>
+      <span>DEF Education</span> 
+  </footer>
 
 <!-- custom js file link   -->
  <script>
@@ -132,11 +131,9 @@
 
     const username = sessionStorage.getItem("username");
     const department = sessionStorage.getItem("department");
-    alert(sessionStorage.getItem("department"))
     if (username) {
         // Display username
         document.getElementById("profileInfo").innerHTML = `<p>${username}!</p>`;
-        document.getElementById("profile_department").innerHTML = `<p>${department}!</p>`;
       } else {
         // Redirect to login page if username not found
         window.location.href = "login.html";
